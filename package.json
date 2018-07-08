@@ -1,0 +1,24 @@
+{
+  "name": "getninjas",
+  "version": "1.0.0",
+  "description": "Teste GetNinjas",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavoferrarigranero/getninjas.git"
+  },
+  "keywords": [
+    "vanilla.js"
+  ],
+  "author": "Gustavo Ferrari Granero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavoferrarigranero/getninjas/issues"
+  },
+  "homepage": "https://github.com/gustavoferrarigranero/getninjas#readme"
+}
