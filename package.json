@@ -5,8 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "build": "node server.js"
+    "start": "npm run gulp | node server.js",
+    "dev": "npm run gulp:dev| node server.js",
+    "gulp:dev": "gulp sass:w",
+    "gulp": "gulp sass"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/gustavoferrarigranero/getninjas/issues"
   },
-  "homepage": "https://github.com/gustavoferrarigranero/getninjas#readme"
+  "homepage": "https://github.com/gustavoferrarigranero/getninjas#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
 }

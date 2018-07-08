@@ -1,0 +1,111 @@
+@import 'variables';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: $color-text;
+}
+
+.header {
+    width: 100%;
+    &__content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: #{ $gutter * 4 };
+        max-width: $mobile;
+        margin: auto;
+        padding: #{ $gutter / 3 } 0;
+        @include paddingInMobile(#{ $gutter / 3 } $gutter);
+        &__menu {
+            cursor: pointer;
+            max-width: #{ $gutter * 3 };
+            > svg {
+                fill: $color-one;
+                transition: .2s all ease-out;
+                width: 24px;
+                height: 24px;
+                &:hover {
+                    fill: $color-one-hover;
+                }
+            }
+        }
+        > img {
+            margin-right: $gutter;
+        }
+        > h1 {
+            flex: 1;
+            color: $color-one;
+        }
+    }
+}
+.container {
+    max-width: 960px;
+    margin: auto;
+    &__top {
+        display: flex;
+        position: relative;
+        left: calc(-50vw + 50%); 
+        width: 100vw;
+        padding: 0 #{ $gutter * 8 };
+        background-color: darken(white, 5%);
+        border-bottom: 1px solid $color-border;
+        &__left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: #{ $gutter * 5 } 0;
+            flex: 1;
+            > h2 {
+                font-size: 2.6rem;
+            }
+            > h3 {
+                font-size: 1.2rem;
+                color: darken(white, $amount: 40%)
+            }
+        }
+        &__right {
+            > img {
+                display: block;
+                @include hideOnMobile;
+            }
+        }
+    }
+    &__form {
+        position: relative;
+        margin-top: -#{ $gutter * 4 };
+        padding: #{ $gutter * 3};
+        border: 1px solid $color-border;
+        background-color: white;
+        max-width: 65%;
+        min-height: #{ $gutter * 10 };
+        border-radius: $radius;
+        &__fieldset {
+            border: none;
+            &__blank {
+                text-align: center;
+            }
+        }
+        > h4, > h5 {
+            text-align: center;
+            color: $color-one;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        > h5 {
+            margin-top: #{ $gutter / 2 };
+            font-size: 0.9rem;
+        }
+        > hr {
+            margin: #{ $gutter * 3 } 0;
+            border-color: $color-one;
+            opacity: 0.2;
+        }
+    }
+}

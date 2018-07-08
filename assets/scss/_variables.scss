@@ -1,0 +1,21 @@
+$color-one: #1393f6;
+$color-one-hover: darken(#1393f6, 20%);
+$color-text: #536e7b;
+$color-border: darken(white, 20%);
+
+$gutter: 15px;
+$radius: 5px;
+
+$mobile: 960px;
+
+@mixin hideOnMobile() {
+    @media (max-width: $mobile) {
+        display: none;
+    }
+}
+
+@mixin paddingInMobile($padding) {
+    @media (max-width: $mobile) {
+        padding: $padding;
+    }
+}

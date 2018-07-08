@@ -2,7 +2,10 @@ let http = require('http')
 let fs = require('fs')
 
 let port = 3000
-let filePath = 'fields.json';
+let filePath = 'fields.json'
+let pagePath = 'index.html'
+let jsPath = 'assets/index.js'
+let cssPath = 'assets/index.css'
 
 let server = http.createServer().listen(port)
 
@@ -19,8 +22,30 @@ server.on('request', function (req, res) {
       }
     })
   } else {
-    res.writeHead(404, {})
-    res.end('404!', 'utf-8')
+    switch (req.url) {
+      case '/':
+        fs.readFile(pagePath, function (err, data) {
+          res.writeHead(200, {'Content-Type': 'text/html'})
+          res.end(data)
+        })
+        break
+      case '/assets/index.js':
+        fs.readFile(jsPath, function (err, data) {
+          res.writeHead(200, {'Content-Type': 'text/javascript'})
+          res.end(data)
+        })
+        break
+      case '/assets/index.css':
+        fs.readFile(cssPath, function (err, data) {
+          res.writeHead(200, {'Content-Type': 'text/css'})
+          res.end(data)
+        })
+        break
+      default:
+        res.writeHead(404, {'Content-Type': 'text/html'})
+        res.end('404!')
+        break
+    }
   }
 })
 console.log('Listening on port 3000')
