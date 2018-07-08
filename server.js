@@ -11,6 +11,12 @@ let server = http.createServer().listen(port)
 
 server.on('request', function (req, res) {
   if (req.method == 'POST') {
+
+    if (req.url == '/post') {
+      res.writeHead(200, { 'Content-Type': 'text/html' })
+      res.end('Submited!', 'utf-8')
+    }
+
     fs.readFile(filePath, function (error, content) {
       if (error) {
         res.writeHead(500)
