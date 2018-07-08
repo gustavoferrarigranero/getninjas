@@ -10,6 +10,8 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     color: $color-text;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .header {
@@ -66,8 +68,10 @@ body {
                 font-size: 2.6rem;
             }
             > h3 {
+                margin-top: $gutter;
                 font-size: 1.2rem;
-                color: darken(white, $amount: 40%)
+                color: darken(white, $amount: 40%);
+                font-weight: normal;
             }
         }
         &__right {
@@ -80,6 +84,7 @@ body {
     &__form {
         position: relative;
         margin-top: -#{ $gutter * 4 };
+        margin-bottom: #{ $gutter * 4 };
         padding: #{ $gutter * 3};
         border: 1px solid $color-border;
         background-color: white;
@@ -101,6 +106,7 @@ body {
         > h5 {
             margin-top: #{ $gutter / 2 };
             font-size: 0.9rem;
+            font-weight: normal;
         }
         > hr {
             margin: #{ $gutter * 3 } 0;
@@ -108,4 +114,22 @@ body {
             opacity: 0.2;
         }
     }
+}
+
+label {
+    margin-top: $gutter;
+    margin-bottom: #{ $gutter / 3 };
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    color: lighten(black, 40%);
+    font-size: 15px;
+}
+select {
+    @include formInput;
+}
+textarea {
+    @include formInput;
+    height: auto;
+    resize: none;
 }

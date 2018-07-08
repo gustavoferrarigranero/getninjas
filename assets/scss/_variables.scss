@@ -19,3 +19,32 @@ $mobile: 960px;
         padding: $padding;
     }
 }
+
+@mixin formInput {
+    height: 45px;
+    -webkit-transition-duration: .18s;
+    -webkit-transition-property: box-shadow;
+    background-color: #eff4fa;
+    border: 1px solid rgba(19,147,246,.5);
+    border-radius: 6px;
+    color: inherit;
+    display: block;
+    font-size: 15px;
+    font-style: normal;
+    line-height: inherit;
+    padding: 0 #{ $gutter - 4px };
+    transition-duration: .18s;
+    -webkit-transition-property: -webkit-box-shadow;
+    transition-property: -webkit-box-shadow;
+    transition-property: box-shadow;
+    transition-property: box-shadow , -webkit-box-shadow;
+    outline: none;
+    width: 100%;
+    &:hover {
+        -webkit-box-shadow: 0 0 1px 1px rgba(19,147,246,.5);
+        box-shadow: 0 0 1px 1px rgba(19,147,246,.5);
+        outline: none;
+        background-color: #fff;
+        border: 1px solid #536e7b;
+    }
+}

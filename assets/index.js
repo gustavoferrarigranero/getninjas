@@ -1,10 +1,12 @@
 const url = 'http://localhost:3000/'
 
-let form = null
+let form = document.createElement('div');
+let fieldset = document.querySelector('.container__form__fieldset');
+let jsonRead = {};
 
 async function render(url) {
     try {
-        await wait(1000)
+        await wait(500)
         const response = await fetch(url, {
                 method: 'POST',
                 body: []
@@ -13,7 +15,7 @@ async function render(url) {
                     return res.json()
                 })
                 .then(json => {
-                    return json._embedded
+                    return jsonRead = json._embedded
                 })
                 .then(fields => {
                     renderForm(fields);
@@ -36,12 +38,58 @@ render(url);
 
 function renderForm(fields) {
     fields.request_fields.forEach(field => {
-        resolveField(field)
+        let label = document.createElement('label')
+        label.setAttribute('for', field.name)
+        label.innerHTML = field.label
+        form.appendChild(label)
+
+        switch (field.type) {
+            case 'enumerable':
+                renderSelect(field)
+                break;
+
+            case 'big_text':
+                renderTextArea(field)
+                break;
+        
+            default:
+                break;
+        }
     });
+    fieldset.innerHTML = ''
+    fieldset.appendChild(form)
 }
-function resolveField (field) {
-    renderField(field)
+function renderTextArea (field) {
+    let textArea = document.createElement('textarea')
+    textArea.setAttribute('name', field.name)
+    textArea.setAttribute('id', field.name)
+    textArea.setAttribute('rows', 5)
+    textArea.setAttribute('placeholder', field.placeholder)
+    form.appendChild(textArea);
 }
-function renderField (field) {
-    console.log(field)
+function renderSelect (field) {
+    let select = document.createElement('select')
+
+    select.setAttribute('name', field.name)
+    select.setAttribute('id', field.name)
+
+    let option = document.createElement('option')
+    option.setAttribute('value', '')
+    option.innerHTML = field.placeholder
+
+    select.appendChild(option)
+
+    if(field.required)
+        select.setAttribute('required', true)
+
+    console.log(field.values);
+        
+    for(let item in field.values){
+        option = document.createElement('option')
+        option.setAttribute('value', item)
+        option.innerHTML = item
+        select.appendChild(option)
+    }
+
+    form.appendChild(select);
 }
