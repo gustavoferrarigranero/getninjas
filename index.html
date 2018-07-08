@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GetNinjas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
     <header class="header">
         <div class="header__content">
-            <img src="https://www.getninjas.com.br/images/icons/59/original/estetica.svg?1480428280" 
-                alt="logo" class="header__content__logo" width="50">
+            <a href="/" rel="logo"><img src="https://www.getninjas.com.br/images/icons/59/original/estetica.svg?1480428280" 
+                alt="logo" class="header__content__logo" width="50"></a>
             <h1>GetNinjas</h1>
             <div class="header__content__menu">
                 <svg viewBox="0 0 24 24">
@@ -34,16 +35,19 @@
                     alt="banner">
             </div>
         </div>
-        <form action="/" method="post" class="container__form">
-            <h4>Explique o que você precisa</h4>
-            <h5>Peça orçamento grátis, online!</h5>
-            <hr>
+        <form action="/" method="post" class="container__form" data-step="1">
+            <div class="container__form__header">
+                <h4>Explique o que você precisa</h4>
+                <h5>Peça orçamento grátis, online!</h5>
+                <hr>
+            </div>
             <fieldset class="container__form__fieldset">
                 <div class="container__form__fieldset__blank">
                     <img src="https://i2.wp.com/blog.hubilo.com/wp-content/uploads/2017/04/loading-.gif?ssl=1" 
                         alt="loading">
                 </div>
             </fieldset>
+            <button type="button" onclick="actionForm();" class="button">Buscar profissionais</button>
         </form>
     </div>
     <script async defer src="assets/index.js"></script>

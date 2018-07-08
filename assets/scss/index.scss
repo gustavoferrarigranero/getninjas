@@ -30,7 +30,7 @@ body {
             max-width: #{ $gutter * 3 };
             > svg {
                 fill: $color-one;
-                transition: .2s all ease-out;
+                transition: $transition;
                 width: 24px;
                 height: 24px;
                 &:hover {
@@ -38,7 +38,7 @@ body {
                 }
             }
         }
-        > img {
+        > a {
             margin-right: $gutter;
         }
         > h1 {
@@ -48,7 +48,7 @@ body {
     }
 }
 .container {
-    max-width: 960px;
+    max-width: $mobile;
     margin: auto;
     &__top {
         display: flex;
@@ -91,27 +91,32 @@ body {
         max-width: 65%;
         min-height: #{ $gutter * 10 };
         border-radius: $radius;
+        @include fullInMobile;
+        &__header {
+            will-change: opacity;
+            > h4, > h5 {
+                text-align: center;
+                color: $color-one;
+                font-size: 1.3rem;
+                font-weight: bold;
+                font-style: italic;
+            }
+            > h5 {
+                margin-top: #{ $gutter / 2 };
+                font-size: 0.9rem;
+                font-weight: normal;
+            }
+            > hr {
+                margin: #{ $gutter * 1.5 } 0  #{ $gutter * 0.5 } 0;
+                border-color: $color-one;
+                opacity: 0.2;
+            }
+        }
         &__fieldset {
             border: none;
             &__blank {
                 text-align: center;
             }
-        }
-        > h4, > h5 {
-            text-align: center;
-            color: $color-one;
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-        > h5 {
-            margin-top: #{ $gutter / 2 };
-            font-size: 0.9rem;
-            font-weight: normal;
-        }
-        > hr {
-            margin: #{ $gutter * 3 } 0;
-            border-color: $color-one;
-            opacity: 0.2;
         }
     }
 }
@@ -125,11 +130,16 @@ label {
     color: lighten(black, 40%);
     font-size: 15px;
 }
-select {
+select, input {
     @include formInput;
 }
 textarea {
     @include formInput;
     height: auto;
     resize: none;
+    padding: $gutter #{ $gutter - 4px };
+}
+
+.button {
+    @include button;
 }
