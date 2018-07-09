@@ -9,12 +9,12 @@ var should = chai.should()
 
 chai.use(chaiHttp)
 
-describe('API', () => {
+describe('API', function () {
   beforeEach((done) => { // Before each test we empty the database
     done()
   })
 
-  describe('/GET /', () => {
+  describe('/GET /', function () {
     it('it should GET for home page', (done) => {
       chai.request(server)
         .get('/')
@@ -25,7 +25,7 @@ describe('API', () => {
     })
   })
 
-  describe('/POST /', () => {
+  describe('/POST /', function () {
     it('it should POST for json fields', (done) => {
       chai.request(server)
         .post('/')
@@ -37,7 +37,7 @@ describe('API', () => {
     })
   })
 
-  describe('/POST /', () => {
+  describe('/POST /', function () {
     it('it should POST for json fields have content', (done) => {
       chai.request(server)
         .post('/')
@@ -51,7 +51,7 @@ describe('API', () => {
     })
   })
 
-  describe('/POST /', () => {
+  describe('/POST /', function () {
     it('it should POST for submit url', (done) => {
       chai.request(server)
         .post('/post')
@@ -62,7 +62,7 @@ describe('API', () => {
     })
   })
 
-  describe('/POST /', () => {
+  describe('/POST /', function () {
     it('it assert javascript in assets/index.js url', (done) => {
       chai.request(server)
         .get('/assets/index.js')
@@ -76,7 +76,7 @@ describe('API', () => {
     })
   })
 
-  describe('/POST /', () => {
+  describe('/POST /', function () {
     it('it assert css in assets/index.css url', (done) => {
       chai.request(server)
         .get('/assets/index.css')
