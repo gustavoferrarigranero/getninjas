@@ -2,10 +2,10 @@ let http = require('http')
 let fs = require('fs')
 
 let port = 3000
-let filePath = 'fields.json'
-let pagePath = 'index.html'
-let jsPath = 'assets/index.js'
-let cssPath = 'assets/index.css'
+let filePath = './database/fields.json'
+let pagePath = './index.html'
+let jsPath = './assets/index.js'
+let cssPath = './assets/index.css'
 
 let server = http.createServer().listen(port)
 
@@ -21,6 +21,7 @@ server.on('request', function (req, res) {
       if (error) {
         res.writeHead(500)
         res.end('Desculpe! Ocorreu um erro: ' + error.code + ' ..\n')
+        console.log('Desculpe! Ocorreu um erro: ' + error.code + ' ..\n')
         res.end()
       } else {
         res.writeHead(200, { 'Content-Type': 'application/json' })
@@ -54,4 +55,5 @@ server.on('request', function (req, res) {
     }
   }
 })
+module.exports = server
 console.log('Listening on port 3000')

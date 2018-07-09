@@ -1,0 +1,200 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #536e7b;
+  width: 100%;
+  overflow-x: hidden; }
+
+.header {
+  width: 100%; }
+  .header__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    max-width: 1024px;
+    margin: auto;
+    padding: 5px 0; }
+    @media (max-width: 1024px) {
+      .header__content {
+        padding: 5px 15px; } }
+    .header__content__menu {
+      cursor: pointer;
+      max-width: 45px; }
+      .header__content__menu > svg {
+        fill: #1393f6;
+        transition: 0.2s all ease-out;
+        width: 24px;
+        height: 24px; }
+        .header__content__menu > svg:hover {
+          fill: #065b9d; }
+    .header__content > a {
+      margin-right: 15px; }
+    .header__content > h1 {
+      flex: 1;
+      color: #1393f6; }
+
+.container {
+  max-width: 1024px;
+  margin: auto; }
+  .container__top {
+    display: flex;
+    position: relative;
+    left: calc(-50vw + 50%);
+    width: 100vw;
+    padding: 0 120px;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #cccccc; }
+    .container__top__left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 75px 0;
+      flex: 1; }
+      .container__top__left > h2 {
+        font-size: 2.6rem; }
+      .container__top__left > h3 {
+        margin-top: 15px;
+        font-size: 1.2rem;
+        color: #999999;
+        font-weight: normal; }
+    .container__top__right > img {
+      display: block; }
+      @media (max-width: 1024px) {
+        .container__top__right > img {
+          display: none; } }
+  .container__form {
+    position: relative;
+    margin-top: -60px;
+    margin-bottom: 60px;
+    padding: 45px;
+    border: 1px solid #cccccc;
+    background-color: white;
+    max-width: 65%;
+    min-height: 150px;
+    border-radius: 5px; }
+    @media (max-width: 1024px) {
+      .container__form {
+        max-width: calc( 100% - 30px);
+        margin-left: 15px;
+        margin-right: 15px; } }
+    .container__form__header {
+      will-change: opacity; }
+      .container__form__header > h4, .container__form__header > h5 {
+        text-align: center;
+        color: #1393f6;
+        font-size: 1.3rem;
+        font-weight: bold;
+        font-style: italic; }
+      .container__form__header > h5 {
+        margin-top: 7.5px;
+        font-size: 0.9rem;
+        font-weight: normal; }
+      .container__form__header > hr {
+        margin: 22.5px 0 7.5px 0;
+        border-color: #1393f6;
+        opacity: 0.2; }
+    .container__form__fieldset {
+      border: none; }
+      .container__form__fieldset__blank {
+        text-align: center; }
+
+label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  color: #666666;
+  font-size: 15px; }
+
+select, input {
+  height: 45px;
+  background-color: #eff4fa;
+  border: 1px solid rgba(19, 147, 246, 0.5);
+  border-radius: 6px;
+  color: inherit;
+  display: block;
+  font-size: 15px;
+  font-style: normal;
+  line-height: inherit;
+  padding: 0 11px;
+  transition: 0.2s all ease-out;
+  outline: none;
+  width: 100%; }
+  select + span, input + span {
+    color: red;
+    font-size: 0.7rem;
+    opacity: 0;
+    will-change: opacity; }
+  select:hover, input:hover {
+    -webkit-box-shadow: 0 0 1px 1px rgba(19, 147, 246, 0.5);
+    box-shadow: 0 0 1px 1px rgba(19, 147, 246, 0.5);
+    outline: none;
+    background-color: #fff;
+    border: 1px solid #536e7b; }
+  select.invalid, input.invalid {
+    border-color: red; }
+    select.invalid + span, input.invalid + span {
+      opacity: 1; }
+      select.invalid + span::before, input.invalid + span::before {
+        content: 'Campo obrigatório'; }
+
+textarea {
+  height: 45px;
+  background-color: #eff4fa;
+  border: 1px solid rgba(19, 147, 246, 0.5);
+  border-radius: 6px;
+  color: inherit;
+  display: block;
+  font-size: 15px;
+  font-style: normal;
+  line-height: inherit;
+  padding: 0 11px;
+  transition: 0.2s all ease-out;
+  outline: none;
+  width: 100%;
+  height: auto;
+  resize: none;
+  padding: 15px 11px; }
+  textarea + span {
+    color: red;
+    font-size: 0.7rem;
+    opacity: 0;
+    will-change: opacity; }
+  textarea:hover {
+    -webkit-box-shadow: 0 0 1px 1px rgba(19, 147, 246, 0.5);
+    box-shadow: 0 0 1px 1px rgba(19, 147, 246, 0.5);
+    outline: none;
+    background-color: #fff;
+    border: 1px solid #536e7b; }
+  textarea.invalid {
+    border-color: red; }
+    textarea.invalid + span {
+      opacity: 1; }
+      textarea.invalid + span::before {
+        content: 'Campo obrigatório'; }
+
+.button {
+  background-color: #1393f6;
+  color: white;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  transition: 0.2s all ease-out;
+  margin-top: 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  outline: none !important; }
+  .button:hover {
+    background-color: #065b9d; }
