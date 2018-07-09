@@ -10,7 +10,7 @@ var should = chai.should()
 chai.use(chaiHttp)
 
 describe('API', function () {
-  beforeEach((done) => { // Before each test we empty the database
+  beforeEach(function (done) { // Before each test we empty the database
     done()
   })
 
