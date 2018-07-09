@@ -2,10 +2,10 @@
 
 process.env.NODE_ENV = 'test'
 
-var chai = require('chai')
-var chaiHttp = require('chai-http')
-var server = require('../api/server')
-var should = chai.should()
+let chai = require('chai')
+let chaiHttp = require('chai-http')
+let server = require('../api/server')
+let should = chai.should()
 
 chai.use(chaiHttp)
 
@@ -30,7 +30,7 @@ describe('API', function () {
       chai.request(server)
         .post('/')
         .end((err, res) => {
-          var json = JSON.parse(res.text)
+          let json = JSON.parse(res.text)
           json.should.be.a('object')
           done()
         })
@@ -42,7 +42,7 @@ describe('API', function () {
       chai.request(server)
         .post('/')
         .end((err, res) => {
-          var json = JSON.parse(res.text)
+          let json = JSON.parse(res.text)
           json.should.have.property('_embedded')
           json._embedded.should.have.property('request_fields')
           json._embedded.should.have.property('user_fields')
